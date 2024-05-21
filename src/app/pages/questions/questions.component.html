@@ -1,0 +1,58 @@
+
+
+<div class="whole">
+<div class="question">
+    <div *ngIf="currentQuestionIndex < questions.length - 1" class="card text-white bg-info mb-3" style="max-width: 50rem;">
+        <div class="card-header"><h1>Kritéria studijních programů</h1></div>
+        <div class="card-body">
+          <h2 class="card-title">Otázka číslo {{currentQuestionIndex+1}}</h2>
+          <h3 class="card-text">{{currentQuestion}}</h3>
+          <br>
+          <p>Vaše odpověď</p>
+       <input type="range" min="1" max="5" [(ngModel)]="criteriaValue">
+      <span>{{criteriaValue}}</span>
+      <br>
+      <p>Priorita kritétria</p> <!-- Display the value next to the slider -->
+      <input type="range" min="1" max="10" [(ngModel)]="priority">
+      <span>{{priority}}</span> <!-- Display the value next to the slider -->
+        </div>
+      </div>
+      <div *ngIf="currentQuestionIndex === questions.length - 1" class="card text-white bg-dark mb-3" style="max-width: 60rem;">
+        <div class="card-header">Preference měst</div>
+        <div class="card-body">
+            <h4 class="card-title">Kterým městům dáváte přednost ?</h4>
+            <div *ngFor="let city of cities; let i = index">
+              <input type="checkbox" [value]="city.id" (change)="onCitySelectionChange($event, city.id)">
+              {{ city.name }}
+            </div>
+            <button type="button" class="btn btn-danger"(click)="finishTest()">Dokončit test</button>
+        </div>
+    </div>
+
+    
+    <div class = buttons>
+    <button type="button" class="btn btn-warning" (click)="previousQuestion()" [disabled]="currentQuestionIndex === 0">Předešlá otázka</button>
+    <button type="button" class="btn btn-success"(click)="nextQuestion()" [disabled]="currentQuestionIndex === questions.length - 1"> Další otázka</button>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" [style.width]="calculateProgress()" [attr.aria-valuenow]="calculateProgress()" aria-valuemin="0" aria-valuemax="100">{{calculateProgress()}}</div>
+    </div>
+  </div>
+  <br>
+  <div class="card text-white bg-danger mb-3" style="max-width: 30rem;">
+    <div class="card-header"><h2>Legenda k hodnocení</h2></div>
+    <div class="card-body">
+      <h3 class="card-title">Škála hodnot pro odpovědi v pomocníkovi.</h3>
+      <ul>
+        <li><strong>1:</strong> Nesouhlasím</li>
+        <li><strong>2:</strong> Spíše nesouhlasím</li>
+        <li><strong>3:</strong> Neutrální postoj</li>
+        <li><strong>4:</strong> Spíše souhlasím</li>
+        <li><strong>5:</strong> Souhlasím</li>
+      </ul>
+      <p>Priorita kritéria: 1 = Nízká Priorita,   10 = Nejvyšší Priorita</p>
+    </div>
+  </div>
+  </div>
+</div>

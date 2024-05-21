@@ -1,0 +1,47 @@
+<div class="table-responsive">
+    <div class="container mt-3">
+      <div class = "card text-white bg-info mb-3">
+        <div class="card-header">
+          <h1>Top 10 nejvhodnějších oborů dle vašich kritérií:</h1>
+        </div>
+        <div class="card-body">
+          <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Název oboru</th>
+                    <th scope="col">Shoda (%)</th>
+                    <th scope="col">Patří mezi preferovaná města?</th>
+                    <th scope="col">Odkaz na oficiální stránky oboru</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let program of studyPrograms; index as i">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ studyProgramDetails[program.schoolId]?.name || 'Program not found' }}</td>
+                    <td>{{ program.score }}</td>
+                    <td>{{ program.matchedCities ? '✅' : '❌' }}</td>
+                    <td>
+                        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="{{ studyProgramDetails[program.schoolId]?.url }}" target="_blank">
+                            <span class="badge badge-primary badge-pill">Zjistit více o oboru</span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+    <div class="card text-white bg-danger mb-3" id = legend style="max-width: 30rem;">
+      <div class="card-header"><h1>Legenda k výsledkům</h1></div>
+      <div class="card-body">
+        <h2 class="card-title">Škála hodnot a pojmy</h2>
+        <ul>
+        <li><h3>Sloupec "Shoda" reprezentuje procentuální hodnotu, která vyjadřuje shodu preferencí uživatele s každým z TOP10 studijních programů.</h3></li>
+        <li><h3>Studijní obory s hvězdičkou (*) značí obory s vysokou mírou volitelnosti odlišných specializací, proto mohou být v pořadí výše častěji než ostatní studijní obory. Více informací 
+          <a class="legend-link" href="/about">"zde"</a></h3>
+        </li>
+      </ul>
+      </div>
+    </div>
+  </div>

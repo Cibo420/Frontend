@@ -1,0 +1,37 @@
+.university .jumbotron {
+    background-color: #ffffff; /* Set a white background for contrast */
+    color: #333; /* Dark text for better readability */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Increased padding for better spacing */
+}
+
+.list-group-item {
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions for hover effects */
+    border-left: 3px solid #007bff; /* Blue accent border on the left */
+}
+
+.list-group-item:hover {
+    background-color: #f5f5f5; /* Light grey background on hover */
+    transform: translateX(5px); /* Slight move to the right */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.list-group-item a {
+    color: #007bff; /* Bootstrap primary blue for links */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Make the link fill the entire list item for easier clicking */
+}
+
+.list-group-item a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.badge-primary {
+    background-color: #007bff; /* Consistent with link colors */
+}
+
+.badge-pill {
+    padding-right: .6em; /* More horizontal padding for the pill badge */
+    padding-left: .6em; /* More horizontal padding for the pill badge */
+}

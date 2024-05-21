@@ -1,0 +1,35 @@
+.question {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally centers the content */
+    justify-content: center; /* Vertically centers the content */
+    height: 100vh; /* Forces the container to fill the viewport's full height */
+    margin: 0; /* Removes default margin */
+    padding: 20px; /* Provides padding within the container */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    
+}
+
+.card {
+    width: 100%; /* Makes the card stretch to the width of its container */
+    max-width: 60rem; /* Sets a max-width for larger screens */
+}
+
+/* Styles for buttons to ensure they are centered below cards */
+button {
+    margin: 5px; /* Adds space around buttons */
+}
+.progress-wrapper {
+    width: 50%;
+    margin-top: 10px;
+  }
+  
+  .progress {
+    height: 20px;
+  }
+  
+  .progress-bar {
+    width: 60%;
+  }
+
+  

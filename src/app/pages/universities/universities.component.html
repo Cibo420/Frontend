@@ -1,0 +1,29 @@
+<div class="container mt-3">
+    <!-- Loop through universities -->
+    <div *ngFor="let university of universities" class="university mb-4">
+        <div class="jumbotron bg-light p-4 shadow-sm">
+            <h1 class="display-4">{{ university.name }}, {{ university.location.name }}</h1>
+            <div class="row">
+                <div class="col-md-3">
+                  <img src="assets/logo/{{university.logoUrl}}" alt="{{ university.name }} Logo" class="img-fluid">
+                </div>
+                <div class="col-md-9">
+                    <h2>Popis univerzity z univerzitních stránek: </h2>
+                    <div [innerHTML]="university.description"></div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <h3 class="mb-3">Studijní programy:</h3>
+            <div class="list-group">
+                <!-- Loop through study programs of each university -->
+                <a *ngFor="let program of university.studyPrograms"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                   href="{{ program.url }}" target="_blank">
+                    {{ program.name }}
+                    <span class="badge badge-primary badge-pill">Zjistit více o oboru</span>
+                </a>
+            </div>
+        </div>
+    </div>
+  </div>
+  
